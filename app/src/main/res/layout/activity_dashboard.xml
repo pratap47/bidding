@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Dashboard">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <Button
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="host a bid"
+             android:id="@+id/btnHost"
+             android:textSize="35dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="On going bids"
+            android:id="@+id/btnOngoingBids"
+            android:textSize="35dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View My Bids"
+            android:id="@+id/btnViewMyBids"
+            android:textSize="35dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="my bids"
+            android:id="@+id/btnMyBids"
+            android:textSize="35dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

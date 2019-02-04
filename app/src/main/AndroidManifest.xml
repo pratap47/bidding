@@ -16,7 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.authentication"></activity>
+        <activity android:name=".login.authentication" />
+        <activity android:name=".Dashboard" />
+        <activity android:name=".bid.HostBid" />
+        <activity android:name=".bid.MyBids"></activity>
     </application>
 
 </manifest>
