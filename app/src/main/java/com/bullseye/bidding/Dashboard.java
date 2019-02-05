@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.bullseye.bidding.bid.HostBid;
 import com.bullseye.bidding.bid.MyBids;
+import com.bullseye.bidding.bid.OnGoingBids;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,6 +39,11 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 break;
             case R.id.btnMyBids:
                 startActivity(new Intent(Dashboard.this,MyBids.class));
+                break;
+            case R.id.btnOngoingBids:
+                startActivity(new Intent(Dashboard.this,OnGoingBids.class));
+                break;
+
         }
 
     }

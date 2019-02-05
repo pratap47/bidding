@@ -17,14 +17,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".login.authentication" />
-
         <activity android:name=".Dashboard" />
         <activity android:name=".bid.HostBid" />
-        <activity android:name=".bid.MyBids"></activity>
-
+        <activity android:name=".bid.MyBids" />
         <activity android:name=".login.s_login" />
-        <activity android:name=".login.s_signup"></activity>
-
+        <activity android:name=".login.s_signup" />
+        <activity android:name=".bid.OnGoingBids"></activity>
     </application>
 
 </manifest>
