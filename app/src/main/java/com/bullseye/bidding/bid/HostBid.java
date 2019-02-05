@@ -21,6 +21,8 @@ public class HostBid extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_host_bid);
 
+        uuid="test";
+
         edtProductName = (EditText)findViewById(R.id.edtProductName);
         edtDescription= (EditText)findViewById(R.id.edtDescription);
         edtBasePrice = (EditText)findViewById(R.id.edtBasePrice);

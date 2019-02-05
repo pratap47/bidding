@@ -24,14 +24,15 @@ public class MyBids extends AppCompatActivity {
     MyBidAdapter myBidAdapter;
     private List<My_host_listitems> mBidsList;
     private DatabaseReference mDatabase;
+    String uuid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bids);
+        uuid = "test";
 
-        mDatabase =FirebaseDatabase.getInstance().getReference().child("bids");
-
+        mDatabase =FirebaseDatabase.getInstance().getReference().child("bid");
 
         mBidsList = new ArrayList<>();
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
@@ -47,7 +48,7 @@ public class MyBids extends AppCompatActivity {
                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
                 for(DataSnapshot child :children){
                     String mUuid = child.getKey();
-                    if(mUuid==uuid){
+                    if(mUuid.equals(uuid)){
                         String mBidName = child.child("name").getValue(String.class);
                         String mBidDes = child.child("description").getValue(String.class);
                         String mBasePrice = child.child("basePrice").getValue(String.class);

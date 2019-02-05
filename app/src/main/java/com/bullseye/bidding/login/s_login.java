@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.bullseye.bidding.Dashboard;
 import com.bullseye.bidding.MainActivity;
 import com.bullseye.bidding.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -71,7 +72,7 @@ public class s_login extends AppCompatActivity implements View.OnClickListener {
                 prom.setVisibility(View.VISIBLE);
                 if(task.isSuccessful())
                 {prom.setVisibility(View.INVISIBLE);
-                    Intent i=new Intent(s_login.this,MainActivity.class);
+                    Intent i=new Intent(s_login.this,Dashboard.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                     Toast.makeText(s_login.this,"onComplete",Toast.LENGTH_LONG).show();
