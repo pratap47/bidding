@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import static com.bullseye.bidding.Dashboard.uuid;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class OnGoingBids extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_going_bids);
 
-        final String uuid = "qwer";
+
         mDatabse = FirebaseDatabase.getInstance().getReference().child("bid");
 
         mOngoingBidslist = new ArrayList<>();
@@ -41,14 +42,17 @@ public class OnGoingBids extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
                 for(DataSnapshot child :children) {
-                    String mUuid = child.getKey();
-                    if(!mUuid.equals(uuid)){
-                        String mBidName = child.child("name").getValue(String.class);
-                        String mBidDes = child.child("description").getValue(String.class);
-                        String mBasePrice = child.child("basePrice").getValue(String.class);
+                    Iterable<DataSnapshot> ch = child.getChildren();
+                    for (DataSnapshot q : ch) {
+                        String mUuid = q.getKey();
+                        if (!mUuid.equals(uuid)) {
+                            String mBidName = q.child("name").getValue(String.class);
+                            String mBidDes = q.child("description").getValue(String.class);
+                            String mBasePrice = q.child("basePrice").getValue(String.class);
 
-                        OnGoingBids_listitems temp = new OnGoingBids_listitems(mBidName,mBidDes,mBasePrice);
-                        mOngoingBidslist.add(temp);
+                            OnGoingBids_listitems temp = new OnGoingBids_listitems(mBidName, mBidDes, mBasePrice);
+                            mOngoingBidslist.add(temp);
+                        }
                     }
                 }
                 adapter = new OnGoingBid_Adapter(mOngoingBidslist,OnGoingBids.this);

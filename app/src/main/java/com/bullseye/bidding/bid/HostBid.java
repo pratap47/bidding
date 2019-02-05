@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bullseye.bidding.R;
+import static com.bullseye.bidding.Dashboard.uuid;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -28,8 +29,9 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 
 public class HostBid extends AppCompatActivity implements View.OnClickListener {
-    private DatabaseReference mDatabse,selfDatabase;
-    private String  uuid;
+    private DatabaseReference mDatabase;
+
+
     private Button btnHostSubmit;
     EditText edtProductName, edtDescription,edtBasePrice;
     private StorageReference mstoreref;
@@ -42,7 +44,7 @@ public class HostBid extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_host_bid);
         imageView=(ImageView)findViewById(R.id.image);
 
-        uuid="test";
+
 
         edtProductName = (EditText)findViewById(R.id.edtProductName);
         edtDescription= (EditText)findViewById(R.id.edtDescription);
@@ -52,10 +54,10 @@ public class HostBid extends AppCompatActivity implements View.OnClickListener {
         btnHostSubmit.setOnClickListener(this);
         imageView.setOnClickListener(this);
 
-        mDatabse = FirebaseDatabase.getInstance().getReference();
-    //    selfDatabase= FirebaseDatabase.getInstance().getReference();
-        mDatabse = mDatabse.child("bid").child(uuid);
-     //   selfDatabase= selfDatabase.child("users").child(uuid);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        mDatabase = mDatabase.child("bid").push().child(uuid);
+
         mstoreref=FirebaseStorage.getInstance().getReference("uploads");
 
     }
@@ -134,9 +136,10 @@ public class HostBid extends AppCompatActivity implements View.OnClickListener {
                 String name = edtProductName.getText().toString();
                 String description = edtDescription.getText().toString();
                 String basePrice = edtBasePrice.getText().toString();
-                mDatabse.child("name").setValue(name);
-                mDatabse.child("description").setValue(description);
-                mDatabse.child("basePrice").setValue(basePrice);
+                DatabaseReference s= mDatabase;
+                mDatabase.child("name").setValue(name);
+                mDatabase.child("description").setValue(description);
+                mDatabase.child("basePrice").setValue(basePrice);
                 uploadImageToFirebaseStorage();
                 break;
             case R.id.image:

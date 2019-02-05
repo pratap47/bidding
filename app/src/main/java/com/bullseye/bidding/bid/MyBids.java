@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.bullseye.bidding.Dashboard;
+import static com.bullseye.bidding.Dashboard.uuid;
 import com.bullseye.bidding.R;
 import com.bullseye.bidding.adapters.MyBidAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -24,13 +25,13 @@ public class MyBids extends AppCompatActivity {
     MyBidAdapter myBidAdapter;
     List<My_host_listitems> mBidsList;
     DatabaseReference mDatabase;
-    String uuid;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bids);
-        uuid = "test";
+
 
         mDatabase =FirebaseDatabase.getInstance().getReference().child("bid");
 
@@ -45,17 +46,20 @@ public class MyBids extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
                 for(DataSnapshot child :children){
-                    String mUuid = child.getKey();
-                    if(mUuid.equals(uuid)){
-                        String mBidName = child.child("name").getValue(String.class);
-                        String mBidDes = child.child("description").getValue(String.class);
-                        String mBasePrice = child.child("basePrice").getValue(String.class);
+                  Iterable<DataSnapshot> ch = child.getChildren();
+                  for(DataSnapshot q :ch) {
+                      String mUuid = q.getKey();
+                      if (mUuid.equals(uuid)) {
+                          String mBidName = q.child("name").getValue(String.class);
+                          String mBidDes = q.child("description").getValue(String.class);
+                          String mBasePrice = q.child("basePrice").getValue(String.class);
 
-                        My_host_listitems temp = new My_host_listitems(mBidName,mBidDes);
-                        mBidsList.add(temp);
+                          My_host_listitems temp = new My_host_listitems(mBidName, mBidDes);
+                          mBidsList.add(temp);
 
-                        //myBidAdapter.notifyItemInserted(mBidsList.size()-1);
-                    }
+                          //myBidAdapter.notifyItemInserted(mBidsList.size()-1);
+                      }
+                  }
                 }
                 myBidAdapter = new MyBidAdapter(mBidsList,MyBids.this);
                 recyclerView.setAdapter(myBidAdapter);
@@ -66,9 +70,6 @@ public class MyBids extends AppCompatActivity {
 
             }
         });
-
-
-      //  recyclerView.setLayoutManager(new LinearLayoutManager(MyBids.this));
 
 
 

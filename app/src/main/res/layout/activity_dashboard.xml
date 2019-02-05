@@ -25,8 +25,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View My Bids"
-            android:id="@+id/btnViewMyBids"
+            android:text="Sign Out"
+            android:id="@+id/btnSignOut"
             android:textSize="35dp"/>
         <Button
             android:layout_width="match_parent"
