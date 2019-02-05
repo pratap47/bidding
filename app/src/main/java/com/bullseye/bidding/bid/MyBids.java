@@ -53,8 +53,10 @@ public class MyBids extends AppCompatActivity {
                           String mBidName = q.child("name").getValue(String.class);
                           String mBidDes = q.child("description").getValue(String.class);
                           String mBasePrice = q.child("basePrice").getValue(String.class);
+                          String mCurrentPrice =q.child("current").getValue(String.class);
+                          String mStatus = q.child("status").getValue(String.class);
 
-                          My_host_listitems temp = new My_host_listitems(mBidName, mBidDes);
+                          My_host_listitems temp = new My_host_listitems(mBidName,mBidDes,mBasePrice,mCurrentPrice,mStatus);
                           mBidsList.add(temp);
 
                           //myBidAdapter.notifyItemInserted(mBidsList.size()-1);

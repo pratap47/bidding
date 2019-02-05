@@ -35,6 +35,9 @@ public class MyBidAdapter extends RecyclerView.Adapter<MyBidAdapter.ViewHolder> 
         My_host_listitems l = listitems.get(position);
         viewHolder.txtDescrip.setText(l.getmDescrip());
         viewHolder.txtName.setText(l.getmName());
+        viewHolder.txtBasePrice.setText(l.getmBasePrice());
+        viewHolder.txtCurrentPrice.setText(l.getmCurrentPrice());
+        viewHolder.txtStatus.setText(l.getmStatus());
 
     }
 
@@ -45,13 +48,17 @@ public class MyBidAdapter extends RecyclerView.Adapter<MyBidAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView txtName;
-        public TextView txtDescrip;
+        public TextView txtDescrip,txtBasePrice,txtCurrentPrice,txtStatus;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             txtName = (TextView)itemView.findViewById(R.id.txtName);
             txtDescrip =(TextView)itemView.findViewById(R.id.txtDescrip);
+            txtStatus = (TextView)itemView.findViewById(R.id.txtStatus);
+            txtBasePrice = (TextView)itemView.findViewById(R.id.txtBasePrice);
+            txtCurrentPrice = (TextView)itemView.findViewById(R.id.txtCurrentPrice);
+
         }
 
     }

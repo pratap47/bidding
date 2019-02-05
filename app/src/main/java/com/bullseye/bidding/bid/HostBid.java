@@ -136,10 +136,14 @@ public class HostBid extends AppCompatActivity implements View.OnClickListener {
                 String name = edtProductName.getText().toString();
                 String description = edtDescription.getText().toString();
                 String basePrice = edtBasePrice.getText().toString();
+                String currentPrice = basePrice;
+                String status ="Active";
                 DatabaseReference s= mDatabase;
                 mDatabase.child("name").setValue(name);
                 mDatabase.child("description").setValue(description);
                 mDatabase.child("basePrice").setValue(basePrice);
+                mDatabase.child("status").setValue("active");
+                mDatabase.child("current").setValue(currentPrice);
                 uploadImageToFirebaseStorage();
                 break;
             case R.id.image:
