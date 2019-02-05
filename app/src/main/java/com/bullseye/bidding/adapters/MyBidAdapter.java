@@ -40,7 +40,7 @@ public class MyBidAdapter extends RecyclerView.Adapter<MyBidAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listitems.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

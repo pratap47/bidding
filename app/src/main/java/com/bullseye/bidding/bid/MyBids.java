@@ -22,8 +22,8 @@ public class MyBids extends AppCompatActivity {
 
     RecyclerView recyclerView;
     MyBidAdapter myBidAdapter;
-    private List<My_host_listitems> mBidsList;
-    private DatabaseReference mDatabase;
+    List<My_host_listitems> mBidsList;
+    DatabaseReference mDatabase;
     String uuid;
 
     @Override
@@ -36,11 +36,9 @@ public class MyBids extends AppCompatActivity {
 
         mBidsList = new ArrayList<>();
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        myBidAdapter = new MyBidAdapter(mBidsList,this);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(MyBids.this));
-        recyclerView.setAdapter(myBidAdapter);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -55,8 +53,12 @@ public class MyBids extends AppCompatActivity {
 
                         My_host_listitems temp = new My_host_listitems(mBidName,mBidDes);
                         mBidsList.add(temp);
+
+                        //myBidAdapter.notifyItemInserted(mBidsList.size()-1);
                     }
                 }
+                myBidAdapter = new MyBidAdapter(mBidsList,MyBids.this);
+                recyclerView.setAdapter(myBidAdapter);
             }
 
             @Override
@@ -64,6 +66,9 @@ public class MyBids extends AppCompatActivity {
 
             }
         });
+
+
+      //  recyclerView.setLayoutManager(new LinearLayoutManager(MyBids.this));
 
 
 
