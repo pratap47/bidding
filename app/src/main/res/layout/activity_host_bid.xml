@@ -1,41 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bid.HostBid">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    tools:context=".bid.HostBid"
+    android:orientation="vertical">
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="0dp"
+    android:layout_marginTop="0dp"
+    android:orientation="vertical">
 
     <EditText
-        android:layout_width="wrap_content"
+        android:id="@+id/edtProductName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:layout_weight="1"
+        android:gravity="center"
         android:hint="Product Name"
-        android:id="@+id/edtProductName"/>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:hint="description"
-            android:id="@+id/edtDescription"
-            />
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:hint="base bid price"
-            android:id="@+id/edtBasePrice"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnHostSubmit"
-            android:text="Submit"
-            />
-    </LinearLayout>
+        android:textSize="25dp" />
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/image"
+
+        android:layout_width="match_parent"
+        android:layout_height="141dp"
+        android:layout_weight="1"
+        />
+
+    <EditText
+        android:id="@+id/edtDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="description"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/edtBasePrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="base bid price"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btnHostSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:layout_weight="1"
+        android:text="Submit" />
+
+
+</LinearLayout>
