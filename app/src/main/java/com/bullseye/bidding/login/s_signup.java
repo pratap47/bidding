@@ -1,6 +1,8 @@
 package com.bullseye.bidding.login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ public class s_signup extends AppCompatActivity implements View.OnClickListener 
     EditText pass1;
     FirebaseAuth mAuth;
     ProgressBar prog;
+    String ema;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,9 @@ public class s_signup extends AppCompatActivity implements View.OnClickListener 
 
         email1=(EditText)findViewById(R.id.email1);
         pass1=(EditText)findViewById(R.id.pass1);
+
+
+
         findViewById(R.id.signup1).setOnClickListener(this);
         findViewById(R.id.login1).setOnClickListener(this);
         prog=(ProgressBar)findViewById(R.id.prog);
@@ -40,7 +46,7 @@ public class s_signup extends AppCompatActivity implements View.OnClickListener 
 
     private void registeruser() {
         prog.setVisibility(View.VISIBLE);
-        String ema=email1.getText().toString().trim();
+         ema=email1.getText().toString().trim();
         String pas=pass1.getText().toString().trim();
         if(ema.isEmpty())
         {
@@ -73,6 +79,10 @@ public class s_signup extends AppCompatActivity implements View.OnClickListener 
                 prog.setVisibility(View.INVISIBLE);
                 if(task.isSuccessful())
                 {
+                    SharedPreferences sharedPreferences = getSharedPreferences("email", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("email", ema);
+                    editor.apply();
                     Toast.makeText(s_signup.this, "User register successfull", Toast.LENGTH_SHORT).show();
 
                 }

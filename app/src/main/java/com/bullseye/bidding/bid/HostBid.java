@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bullseye.bidding.R;
+
+import static com.bullseye.bidding.Dashboard.email;
 import static com.bullseye.bidding.Dashboard.uuid;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -144,6 +146,9 @@ public class HostBid extends AppCompatActivity implements View.OnClickListener {
                 mDatabase.child("basePrice").setValue(basePrice);
                 mDatabase.child("status").setValue("active");
                 mDatabase.child("current").setValue(currentPrice);
+                mDatabase.child("email").setValue("no user");
+                mDatabase.child("uuid").setValue(uuid);
+
                 uploadImageToFirebaseStorage();
                 break;
             case R.id.image:

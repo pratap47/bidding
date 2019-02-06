@@ -7,13 +7,23 @@ public class My_host_listitems {
     private String mBasePrice;
     private String mCurrentPrice;
     private String mStatus;
+    private String mUser;
 
-    public My_host_listitems(String mName, String mDescrip, String mBasePrice, String mCurrentPrice, String mStatus) {
+    public My_host_listitems(String mName, String mDescrip, String mBasePrice, String mCurrentPrice, String mStatus,String mUser) {
         this.mName = mName;
         this.mDescrip = mDescrip;
         this.mBasePrice = mBasePrice;
         this.mCurrentPrice = mCurrentPrice;
         this.mStatus = mStatus;
+        this.mUser =mUser;
+    }
+
+    public String getmUser() {
+        return mUser;
+    }
+
+    public void setmUser(String mUser) {
+        this.mUser = mUser;
     }
 
     public String getmName() {

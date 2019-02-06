@@ -40,6 +40,12 @@
             android:id="@+id/txtStatus"
             android:textSize="30dp"
             />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtUser"
+            android:textSize="30dp"
+            />
     </LinearLayout>
 
     </android.support.v7.widget.CardView>

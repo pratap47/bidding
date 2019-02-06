@@ -17,6 +17,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtBidBasePrice"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtBidCurrentPrice"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtBidStatus"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtUser"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Make a bid"
+            android:id="@+id/btnMakeBid"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Bid"
+            android:id="@+id/edtBidAmount"/>
+
     </LinearLayout>
 
 </RelativeLayout>

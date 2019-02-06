@@ -25,6 +25,7 @@ public class MyBids extends AppCompatActivity {
     MyBidAdapter myBidAdapter;
     List<My_host_listitems> mBidsList;
     DatabaseReference mDatabase;
+    String mName;
 
 
     @Override
@@ -55,11 +56,12 @@ public class MyBids extends AppCompatActivity {
                           String mBasePrice = q.child("basePrice").getValue(String.class);
                           String mCurrentPrice =q.child("current").getValue(String.class);
                           String mStatus = q.child("status").getValue(String.class);
+                          String mUser = q.child("useruuid").getValue(String.class);
 
-                          My_host_listitems temp = new My_host_listitems(mBidName,mBidDes,mBasePrice,mCurrentPrice,mStatus);
+                          My_host_listitems temp = new My_host_listitems(mBidName,mBidDes,mBasePrice,mCurrentPrice,mStatus,mUser);
                           mBidsList.add(temp);
 
-                          //myBidAdapter.notifyItemInserted(mBidsList.size()-1);
+
                       }
                   }
                 }

@@ -37,7 +37,7 @@ public class OnGoingBids extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        mDatabse.addValueEventListener(new ValueEventListener() {
+        mDatabse.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
@@ -49,8 +49,12 @@ public class OnGoingBids extends AppCompatActivity {
                             String mBidName = q.child("name").getValue(String.class);
                             String mBidDes = q.child("description").getValue(String.class);
                             String mBasePrice = q.child("basePrice").getValue(String.class);
+                            String mCurrentPrice = q.child("current").getValue(String.class);
+                            String mStatus = q.child("status").getValue(String.class);
+                            String mUser = q.child("email").getValue(String.class);
+                            String uuid = q.child("uuid").getValue(String.class);
 
-                            OnGoingBids_listitems temp = new OnGoingBids_listitems(mBidName, mBidDes, mBasePrice);
+                            OnGoingBids_listitems temp = new OnGoingBids_listitems(mBidName, mBidDes, mBasePrice,mStatus,mCurrentPrice,mUser,uuid);
                             mOngoingBidslist.add(temp);
                         }
                     }
