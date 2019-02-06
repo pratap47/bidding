@@ -5,35 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Dashboard">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#eee561"
+        android:orientation="vertical">
 
         <Button
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:text="host a bid"
-             android:id="@+id/btnHost"
-             android:textSize="35dp"/>
-        <Button
+            android:id="@+id/btnHost"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="On going bids"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="#ff6b15"
+            android:text="host a bid"
+            android:textSize="35dp" />
+
+        <Button
             android:id="@+id/btnOngoingBids"
-            android:textSize="35dp"/>
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Out"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:text="On going bids"
+            android:textSize="35dp" />
+
+        <Button
             android:id="@+id/btnSignOut"
-            android:textSize="35dp"/>
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="my bids"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:text="Sign Out"
+            android:textSize="35dp" />
+
+        <Button
             android:id="@+id/btnMyBids"
-            android:textSize="35dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="my bids"
+            android:textSize="35dp" />
     </LinearLayout>
 
 </RelativeLayout>

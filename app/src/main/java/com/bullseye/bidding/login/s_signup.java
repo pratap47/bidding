@@ -46,7 +46,7 @@ public class s_signup extends AppCompatActivity implements View.OnClickListener 
 
     private void registeruser() {
         prog.setVisibility(View.VISIBLE);
-         ema=email1.getText().toString().trim();
+        ema=email1.getText().toString().trim();
         String pas=pass1.getText().toString().trim();
         if(ema.isEmpty())
         {
@@ -84,7 +84,8 @@ public class s_signup extends AppCompatActivity implements View.OnClickListener 
                     editor.putString("email", ema);
                     editor.apply();
                     Toast.makeText(s_signup.this, "User register successfull", Toast.LENGTH_SHORT).show();
-
+                    Intent intent =new Intent(s_signup.this,s_login.class);
+                    startActivity(intent);
                 }
                 else{
                     if(task.getException() instanceof FirebaseAuthEmailException){
@@ -96,6 +97,7 @@ public class s_signup extends AppCompatActivity implements View.OnClickListener 
                 }
             }
         });
+
     }
 
 

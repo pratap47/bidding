@@ -31,7 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="141dp"
         android:layout_weight="1"
-        />
+        android:background="#d8be3d"
+        android:src="@drawable/common_full_open_on_phone" />
 
     <EditText
         android:id="@+id/edtDescription"

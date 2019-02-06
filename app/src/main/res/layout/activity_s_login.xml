@@ -11,9 +11,8 @@
         android:layout_height="match_parent"
 
 
-        android:background="@color/colorAccent"
+        android:background="#dee671"
         android:orientation="vertical">
-
 
 
         <EditText
@@ -21,25 +20,25 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="100dp"
-            android:background="@color/common_google_signin_btn_text_dark_default"
+            android:background="@color/design_default_color_primary"
             android:ems="10"
             android:gravity="center"
             android:hint="Username"
             android:inputType="textPersonName"
             android:selectAllOnFocus="true"
-            android:textColorHint="@color/colorPrimaryDark" />
+            android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
 
         <EditText
             android:id="@+id/passm"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="11dp"
-            android:background="@color/common_google_signin_btn_text_dark_default"
+            android:background="@color/design_default_color_primary"
             android:ems="10"
             android:gravity="center"
             android:hint="Password"
             android:inputType="textPersonName"
-            android:textColorHint="@color/colorPrimaryDark" />
+            android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
 
         <Button
             android:id="@+id/loginbtn"
@@ -49,7 +48,7 @@
             android:background="@color/common_google_signin_btn_text_dark_focused"
 
             android:text="Login"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18sp" />
 
         <TextView
@@ -70,7 +69,7 @@
             android:layout_marginTop="15dp"
             android:background="@color/common_google_signin_btn_text_dark_focused"
             android:text=" sign up"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18sp" />
     </LinearLayout>
     <ProgressBar
